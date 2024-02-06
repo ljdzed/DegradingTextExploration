@@ -27,7 +27,6 @@ public class FileIO {
             }catch (FileNotFoundException er1){
                 return  null;
             }
-
         }
 
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -71,9 +70,6 @@ public class FileIO {
         fileReader.close();
         bufferedReader.close();
 
-
-        //System.out.println("Repeat Depth: " + repeatDepth);
-        //System.out.println("Live Depth: " + liveDepth);
         return new RepeatLocationPair(repeatDepth, repeatedWord,"responses/"+file);
     }
 
@@ -127,11 +123,7 @@ public class FileIO {
 
             nextBlock = "";
 
-
         }
-
-
-
 
         fileReader.close();
         bufferedReader.close();
@@ -226,10 +218,6 @@ public class FileIO {
                     bufferStr += (char)next;
                 }
             }
-
-
-
-
 
             System.out.println("bufferStr: " + bufferStr);
 
