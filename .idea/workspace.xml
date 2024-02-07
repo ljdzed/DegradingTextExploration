@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="247d6e82-6656-4200-9b6e-da8cb1cffa5e" name="Changes" comment="Initial Commit (partially functioning development)">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="247d6e82-6656-4200-9b6e-da8cb1cffa5e" name="Changes" comment="Added color differentiation to RepeatLocationPair based on Capitalization&#10;Replaced use of word.length with dedicated variable for the function in FileIO&#10;Fixed Spelling error &quot;retrunList&quot; --&gt; &quot;returnList&quot;.&#10;Commented out excessive use of println();.&#10;Replaced use of pari.getDepth(); with location, a dedicatd variable.&#10;Added variod TODO statements where development must continue.&#10;Commented out unused variables.&#10;- ljdzed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/FileIO$RepeatLocationPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/FileIO$RepeatLocationPair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/FileIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/FileIO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/Visualization$Panel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/Visualization$Panel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/Visualization.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/Visualization.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Visualization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Visualization.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +37,11 @@
     <option name="NEW_BASE" value="main" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
@@ -43,12 +53,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1707231165" />
+                    <option name="branchName" value="ljdzed_buffer_analysis" />
+                    <option name="lastUsedInstant" value="1707232769" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1707231164" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1707231165" />
                   </RecentBranch>
                 </list>
               </option>
@@ -110,6 +120,14 @@
       <option name="presentableId" value="Default" />
       <updated>1706536190115</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added folders where .txt files can be stored to analyze">
+      <created>1707232555564</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707232555564</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,7 +143,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit (partially functioning development)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit (partially functioning development)" />
+    <MESSAGE value="Added folders where .txt files can be stored to analyze" />
+    <MESSAGE value="Added color differentiation to RepeatLocationPair based on Capitalization&#10;- ljdzed" />
+    <MESSAGE value="Added color differentiation to RepeatLocationPair based on Capitalization&#10;Replaced use of word.length with dedicated variable for the function in FileIO&#10;Fixed Spelling error &quot;retrunList&quot; --&gt; &quot;returnList&quot;.&#10;Commented out excessive use of println();.&#10;Replaced use of pari.getDepth(); with location, a dedicatd variable.&#10;Added variod TODO statements where development must continue.&#10;Commented out unused variables.&#10;- ljdzed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added color differentiation to RepeatLocationPair based on Capitalization&#10;Replaced use of word.length with dedicated variable for the function in FileIO&#10;Fixed Spelling error &quot;retrunList&quot; --&gt; &quot;returnList&quot;.&#10;Commented out excessive use of println();.&#10;Replaced use of pari.getDepth(); with location, a dedicatd variable.&#10;Added variod TODO statements where development must continue.&#10;Commented out unused variables.&#10;- ljdzed" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DegradingTextExploration$Main.ic" NAME="Main Coverage Results" MODIFIED="1706887566305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

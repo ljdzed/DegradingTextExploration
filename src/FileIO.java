@@ -42,16 +42,19 @@ public class FileIO {
         // Variables for ending loop
         int endBuffer;
         boolean exitCondition = false; // Set to true when while loop should terminate
-        while((endBuffer=bufferedReader.read())!=-1 && exitCondition == false){ // Terminate at end of file (EOF) or exitCondition
+        while((endBuffer=bufferedReader.read())!=-1 && !exitCondition){ // Terminate at end of file (EOF) or exitCondition
 
             if ((char)endBuffer == ' ' || (char)endBuffer == '\n') {
-                if (!currentWord.equals(repeatedWord)){
+                if (!currentWord.equalsIgnoreCase(repeatedWord)){
                     //System.out.println(currentWord + " VS " + repeatedWord);
                     repeatedWord = currentWord;
                     repeatDepth = liveDepth - currentWord.length();
                     currentWord = "";
                     repeatCounter = 0;
                 } else {
+                    if (repeatedWord.toLowerCase().equals(currentWord)){ // Covers case of initial capitalization
+                        repeatedWord = currentWord;
+                    }
                     repeatCounter++;
                     currentWord = "";
                     //System.out.println("EXIT TRUE");
@@ -93,16 +96,20 @@ public class FileIO {
 
         String nextBlock = "";
         int length = word.length();
-        word += ' ';
+
+        word += ' '; // A makeshift workaround to ensure exact matching of strings.
+
+
         boolean exitCondition = false;
         while(!exitCondition){
+
             for (int i = 0; i <= length; i++) {
                 endBuffer = bufferedReader.read();
                 if (endBuffer == -1){
                     exitCondition = true;
                     break;
                 }
-                nextBlock += (char)endBuffer;
+                nextBlock += (char)endBuffer; // Fix concatenation in a loop
 
             }
             System.out.println("'" + nextBlock + "' VS '" + word + "'");
@@ -121,8 +128,7 @@ public class FileIO {
                 retrunList.add(new Color (red, green  , 1));
             }
 
-            nextBlock = "";
-
+            nextBlock = ""; // reset list after a check
         }
 
         fileReader.close();
@@ -135,6 +141,7 @@ public class FileIO {
     // Rolling Buffer analysis that analyzes the correctness of the past X characters (X = length of Repeat Word)
     public ArrayList<Color> RollingBufferDegradation(RepeatLocationPair pair) throws IOException {
         String word = pair.getWord();
+        int wordLength = word.length();
         int location = pair.getDepth();
         System.out.println(location);
         //char[] bufferChar; // Requires shifting all values of array foward and appending to the bottom
@@ -151,24 +158,25 @@ public class FileIO {
         FileReader fileReader = new FileReader(file);
 
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        int endBuffer;
+        // int endBuffer;
 
-        ArrayList returnList = new ArrayList<>();
+        // Initialize return list to all Red
+        ArrayList returnList = new ArrayList<Color>();
         for (int i = 0; i <= totalChars; i++) {
             returnList.add(new Color (255,0,0));
         }
 
+        // Skip to desired location
         for (int i = 0; i < location; i ++){
             bufferedReader.read();
         }
         int index = 0;
         // TODO ***MAYBE*** optimize this so that the first three words are assumed to be matches (CAREFULE DUE TO CHANCE THAT CAPITALIZATION COMES INTO PLAY)
         // Load initial characters into string (should be a match)
-        for (int i = 0; i < word.length(); i++){
+        for (int i = 0; i < wordLength; i++){
             bufferStr += (char)bufferedReader.read();
             index++;
             System.out.println(index + " -- " + bufferStr);
-
         }
 
 
@@ -177,14 +185,14 @@ public class FileIO {
             // if the buffer (last word.length) characters = word
             if (bufferStr.equals(word)){
                 System.out.println("Match");
-                for (int i = 0; i < word.length(); i++){
+                for (int i = 0; i < wordLength; i++){
                     returnList.set(index-i-1, new Color (0, 255  , 0));
 
                 }
                 bufferStr = "";
                 System.out.println(bufferStr);
                 System.out.println(bufferStr.length());
-                for (int i = 0; i < word.length(); i++){
+                for (int i = 0; i < wordLength; i++){
                     int next = bufferedReader.read();
 
                     if(next == -1){
@@ -198,19 +206,27 @@ public class FileIO {
                 }
             } else if (bufferStr.equalsIgnoreCase(word)){
                 System.out.println("Match Equals Ignore Case");
-                for (int i = 0; i < word.length(); i++){
-                    returnList.set(index-i-1, new Color (100, 200  , 0));
+                for (int i = wordLength-1; i >= 0; i--){
+                    //TODO optimize this if statement, see if just an != would suffice
+                    if ( !Character.isUpperCase(bufferStr.charAt(wordLength-i-1)) && Character.isUpperCase(word.charAt(wordLength-i-1))
+                            || (Character.isUpperCase(bufferStr.charAt(wordLength-i-1)) && !Character.isUpperCase(word.charAt(wordLength-i-1)))){
+
+                        // System.out.println(bufferStr.charAt(i));
+                        returnList.set(index-i-1, new Color (125, 200  , 0));
+                    } else {
+                        // System.out.println(bufferStr.charAt(i));
+                        returnList.set(index-i-1, new Color (0, 255  , 0));
+                    }
 
                 }
                 bufferStr = "";
-                System.out.println(bufferStr);
-                System.out.println(bufferStr.length());
-                for (int i = 0; i < word.length(); i++){
+                //System.out.println(bufferStr);
+                //System.out.println(bufferStr.length());
+                for (int i = 0; i < wordLength; i++){
                     int next = bufferedReader.read();
-
                     if(next == -1){
                         System.out.println("BREAK");
-                        System.out.println(returnList);
+                        //System.out.println(returnList);
                         exitCondition = true;
                         break;
                     }
@@ -219,12 +235,12 @@ public class FileIO {
                 }
             }
 
-            System.out.println("bufferStr: " + bufferStr);
+            // System.out.println("bufferStr: " + bufferStr);
 
             int next2 = bufferedReader.read();
             if(next2 == -1){
-                System.out.println("BREAK");
-                System.out.println(returnList);
+                // System.out.println("BREAK");
+                // System.out.println(returnList);
                 exitCondition = true;
                 break;
             }
@@ -232,7 +248,6 @@ public class FileIO {
             index++;
             bufferStr = bufferStr.substring(1);
         }
-
 
         fileReader.close();
         bufferedReader.close();
@@ -249,25 +264,24 @@ public class FileIO {
 
         FileReader fileReader = new FileReader(pair.getFile());
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        int endBuffer = 0;
 
-        for (int i = 0; i < pair.getDepth(); i ++){
+        // Skip to desired location
+        for (int i = 0; i < location; i ++){
             bufferedReader.read();
         }
-        String nextBlock = "";
 
+        // Word by word analysis
+        String nextBlock = "";
+        int endBuffer = 0;
         while((endBuffer=bufferedReader.read())!=-1){
             System.out.println("loop");
             if ((char)endBuffer == ' '){
                 System.out.println("SearchFinds: " + nextBlock);
                 nextBlock = "";
             } else {
-                nextBlock += (char)endBuffer;
+                nextBlock += (char)endBuffer; // TODO find way around string concatenation in loop
             }
         }
-
-
-
 
         fileReader.close();
         bufferedReader.close();
@@ -355,8 +369,8 @@ public class FileIO {
 
 
         int charCount = 0;
-        int endBuffer =0;
-        while((endBuffer=bufferedReader.read())!=-1){
+        // int endBuffer =0; // Unused
+        while((bufferedReader.read())!=-1){
             charCount++;
         }
 

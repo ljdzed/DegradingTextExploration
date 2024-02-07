@@ -29,7 +29,7 @@ public class Visualization extends JFrame {
         }
 
         private void drawDifferences (Graphics g){
-            int resolution = 1 ;
+            int resolution = 4 ;
             int width = 20;
             for (int i = 0; i < data.size(); i ++){
                     //System.out.println(data.get(i));

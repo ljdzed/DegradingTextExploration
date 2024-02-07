@@ -10,7 +10,8 @@ public class Main {
             System.out.println("Repeated Word: " + fileIO.findInitialWord(testFile).getWord());
 
         } catch (IOException e){
-            System.out.println("Error");
+            System.out.println("Error: Initial Word Search");
+            e.printStackTrace();
         }
         javax.swing.SwingUtilities.invokeLater(() -> {
             try {
