@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="247d6e82-6656-4200-9b6e-da8cb1cffa5e" name="Changes" comment="Initial Commit (partially functioning development)">
+    <list default="true" id="247d6e82-6656-4200-9b6e-da8cb1cffa5e" name="Changes" comment="Added DifferenceGraph.java&#10;Refactored Naming schemes and fixed spelling errors (retrunList -&gt; colorList)&#10;Set TODO for Generalized File Handler&#10;Changed SetIntervalDegradation to output new DifferenceGraph class&#10;Commented out unneeded print statements&#10;Changed current testFile.&#10;Large Changes to Visualization, reworked drawDifference to work on array of DifferenceGraphs&#10;Altered Panel constructor">
+      <change afterPath="$PROJECT_DIR$/src/DifferenceGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/FileIO$RepeatLocationPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/FileIO$RepeatLocationPair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/FileIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/FileIO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/Visualization$Panel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/Visualization$Panel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DegradingTextExploration/Visualization.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DegradingTextExploration/Visualization.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Visualization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Visualization.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,9 +40,20 @@
     <option name="NEW_BASE" value="main" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -43,12 +62,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1707231165" />
+                    <option name="branchName" value="ljdzed_buffer_analysis" />
+                    <option name="lastUsedInstant" value="1707232769" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1707231164" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1707231165" />
                   </RecentBranch>
                 </list>
               </option>
@@ -57,6 +76,14 @@
           </list>
         </option>
       </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="373d320e-9b70-4299-b979-d1efd5693e2a" />
+        <option name="url" value="https://github.com/ljdzed/DegradingTextExploration.git" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
@@ -110,6 +137,21 @@
       <option name="presentableId" value="Default" />
       <updated>1706536190115</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added folders where .txt files can be stored to analyze">
+      <created>1707232555564</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707232555564</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added color differentiation to RepeatLocationPair based on Capitalization&#10;Replaced use of word.length with dedicated variable for the function in FileIO&#10;Fixed Spelling error &quot;retrunList&quot; --&gt; &quot;returnList&quot;.&#10;Commented out excessive use of println();.&#10;Replaced use of pari.getDepth(); with location, a dedicatd variable.&#10;Added variod TODO statements where development must continue.&#10;Commented out unused variables.&#10;- ljdzed">
+      <created>1707298240821</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707298240821</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,7 +167,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit (partially functioning development)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit (partially functioning development)" />
+    <MESSAGE value="Added folders where .txt files can be stored to analyze" />
+    <MESSAGE value="Added color differentiation to RepeatLocationPair based on Capitalization&#10;- ljdzed" />
+    <MESSAGE value="Added color differentiation to RepeatLocationPair based on Capitalization&#10;Replaced use of word.length with dedicated variable for the function in FileIO&#10;Fixed Spelling error &quot;retrunList&quot; --&gt; &quot;returnList&quot;.&#10;Commented out excessive use of println();.&#10;Replaced use of pari.getDepth(); with location, a dedicatd variable.&#10;Added variod TODO statements where development must continue.&#10;Commented out unused variables.&#10;- ljdzed" />
+    <MESSAGE value="Added DifferenceGraph.java&#10;Refactored Naming schemes and fixed spelling errors (retrunList -&gt; colorList)&#10;Set TODO for Generalized File Handler&#10;Changed SetIntervalDegradation to output new DifferenceGraph class&#10;Commented out unneeded print statements&#10;Finished SimpleWordDegradation&#10;Changed current testFile.&#10;Large Changes to Visualization, reworked drawDifference to work on array of DifferenceGraphs&#10;Altered Panel constructor&#10;&#10;&#10;Known Bug -&gt; Duplicate screen generated and SimpleWordDegradation is not displaying due to errors in Visualization" />
+    <MESSAGE value="Added DifferenceGraph.java&#10;Refactored Naming schemes and fixed spelling errors (retrunList -&gt; colorList)&#10;Set TODO for Generalized File Handler&#10;Changed SetIntervalDegradation to output new DifferenceGraph class&#10;Commented out unneeded print statements&#10;Changed current testFile.&#10;Large Changes to Visualization, reworked drawDifference to work on array of DifferenceGraphs&#10;Altered Panel constructor&#10;&#10;&#10;Known Bug -&gt; Duplicate screen generated and RollingBufferDegradation is not displaying due to errors in Visualization.java" />
+    <MESSAGE value="Added DifferenceGraph.java&#10;Refactored Naming schemes and fixed spelling errors (retrunList -&gt; colorList)&#10;Set TODO for Generalized File Handler&#10;Changed SetIntervalDegradation to output new DifferenceGraph class&#10;Commented out unneeded print statements&#10;Changed current testFile.&#10;Large Changes to Visualization, reworked drawDifference to work on array of DifferenceGraphs&#10;Altered Panel constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added DifferenceGraph.java&#10;Refactored Naming schemes and fixed spelling errors (retrunList -&gt; colorList)&#10;Set TODO for Generalized File Handler&#10;Changed SetIntervalDegradation to output new DifferenceGraph class&#10;Commented out unneeded print statements&#10;Changed current testFile.&#10;Large Changes to Visualization, reworked drawDifference to work on array of DifferenceGraphs&#10;Altered Panel constructor" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DegradingTextExploration$Main.ic" NAME="Main Coverage Results" MODIFIED="1706887566305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
