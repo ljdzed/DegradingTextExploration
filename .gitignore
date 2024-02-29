@@ -2,3 +2,5 @@
 /responses/jan31/*
 !responses/.gitkeep
 !responses/jan31/.gitkeep
+/out/*
+/.idea/*
